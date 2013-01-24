@@ -36,6 +36,11 @@ static EVALSTRUCT ** read_eval ( int * pNmax )
 
 	fread ( &Nmax, sizeof(int), 1, f );
 
+    if (Nmax > 50) {
+        fprintf(stderr, "Error: expected 50 valences, got %d.\n", Nmax);
+        return NULL;
+    }
+
 	ev = (EVALSTRUCT **) malloc ( (Nmax-2)*sizeof(EVALSTRUCT *) );
 
 	for ( i=0 ; i<Nmax-2 ; i++ )
