@@ -28,7 +28,7 @@ static EVALSTRUCT ** read_eval ( int * pNmax )
 	FILE * f;
 	int Nmax, i, N, K;
 
-#ifdef _WIN32
+#if defined(_WIN32) || defined(__APPLE__)
 	if ( !(f=fopen("lpdata50NT.dat","rb")) ) return ( NULL );
 #else
 	if ( !(f=fopen("lpdata50.dat","r")) ) return ( NULL );
